@@ -30,6 +30,11 @@ class ThemeController extends Controller
         return view('theme.services');
     }
 
+    public function cart()
+    {
+        return view('theme.cart');
+    }
+
     public function contact()
     {
         

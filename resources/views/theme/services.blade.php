@@ -1,275 +1,271 @@
 @extends('theme.master')
 
-@section('hero-title', 'My Services')
+@section('hero-title', 'Nos Services')
 @section('services-active', 'active')
 
 @section('content')
-    <!-- Start Why Choose Us Section -->
+    <!-- Section Services -->
     <div class="why-choose-section">
         <div class="container">
-
-
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center">
+                    <h2 class="section-title">Services S&B Store</h2>
+                    <p class="lead">Découvrez nos services exclusifs pour votre mobilier</p>
+                </div>
+            </div>
             <div class="row my-5">
                 <div class="col-6 col-md-6 col-lg-3 mb-4">
                     <div class="feature">
                         <div class="icon">
-                            <img src="{{ asset('assets') }}/images/truck.svg" alt="Image" class="imf-fluid">
+                            <img src="{{ asset('assets') }}/images/truck.svg" alt="Livraison" class="imf-fluid">
                         </div>
-                        <h3>Fast &amp; Free Shipping</h3>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                        <h3>Livraison Premium</h3>
+                        <p>Livraison soignée à domicile avec déballage et installation de vos meubles inclus.</p>
                     </div>
                 </div>
 
                 <div class="col-6 col-md-6 col-lg-3 mb-4">
                     <div class="feature">
                         <div class="icon">
-                            <img src="{{ asset('assets') }}/images/bag.svg" alt="Image" class="imf-fluid">
+                            <img src="{{ asset('assets') }}/images/bag.svg" alt="Shopping" class="imf-fluid">
                         </div>
-                        <h3>Easy to Shop</h3>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                        <h3>Shopping Privé</h3>
+                        <p>Visite personnalisée de notre showroom avec un conseiller dédié pour vos achats.</p>
                     </div>
                 </div>
 
                 <div class="col-6 col-md-6 col-lg-3 mb-4">
                     <div class="feature">
                         <div class="icon">
-                            <img src="{{ asset('assets') }}/images/support.svg" alt="Image" class="imf-fluid">
+                            <img src="{{ asset('assets') }}/images/support.svg" alt="Support" class="imf-fluid">
                         </div>
-                        <h3>24/7 Support</h3>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                        <h3>Service Client</h3>
+                        <p>Assistance dédiée pour le suivi de vos commandes et service après-vente premium.</p>
                     </div>
                 </div>
 
                 <div class="col-6 col-md-6 col-lg-3 mb-4">
                     <div class="feature">
                         <div class="icon">
-                            <img src="{{ asset('assets') }}/images/return.svg" alt="Image" class="imf-fluid">
+                            <img src="{{ asset('assets') }}/images/return.svg" alt="Garantie" class="imf-fluid">
                         </div>
-                        <h3>Hassle Free Returns</h3>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                        <h3>Garantie Confort</h3>
+                        <p>Garantie satisfait ou remboursé de 30 jours et garantie qualité de 2 ans sur tous nos produits.</p>
                     </div>
                 </div>
-
-                <div class="col-6 col-md-6 col-lg-3 mb-4">
-                    <div class="feature">
-                        <div class="icon">
-                            <img src="{{ asset('assets') }}/images/truck.svg" alt="Image" class="imf-fluid">
-                        </div>
-                        <h3>Fast &amp; Free Shipping</h3>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-6 col-lg-3 mb-4">
-                    <div class="feature">
-                        <div class="icon">
-                            <img src="{{ asset('assets') }}/images/bag.svg" alt="Image" class="imf-fluid">
-                        </div>
-                        <h3>Easy to Shop</h3>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-6 col-lg-3 mb-4">
-                    <div class="feature">
-                        <div class="icon">
-                            <img src="{{ asset('assets') }}/images/support.svg" alt="Image" class="imf-fluid">
-                        </div>
-                        <h3>24/7 Support</h3>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-6 col-lg-3 mb-4">
-                    <div class="feature">
-                        <div class="icon">
-                            <img src="{{ asset('assets') }}/images/return.svg" alt="Image" class="imf-fluid">
-                        </div>
-                        <h3>Hassle Free Returns</h3>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                    </div>
-                </div>
-
             </div>
-
         </div>
     </div>
-    <!-- End Why Choose Us Section -->
 
-    <!-- Start Product Section -->
-    <div class="product-section pt-0">
+    <!-- Section Avantages -->
+    <div class="pricing-section pt-0">
         <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center">
+                    <h2 class="section-title">Nos Formules</h2>
+                    <p class="lead">Choisissez le service qui vous convient</p>
+                </div>
+            </div>
             <div class="row">
-
-                <!-- Start Column 1 -->
-                <div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-                    <h2 class="mb-4 section-title">Crafted with excellent material.</h2>
-                    <p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-                        vulputate velit imperdiet dolor tempor tristique. </p>
-                    <p><a href="#" class="btn">Explore</a></p>
+                <div class="col-md-4 mb-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Livraison Standard</h3>
+                            <div class="price">Gratuite</div>
+                            <p>Pour toute commande</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Livraison à domicile</li>
+                            <li>Suivi de commande</li>
+                            <li>Créneau de 4h</li>
+                            <li>Déballage simple</li>
+                        </ul>
+                        <a href="{{ route('theme.shop') }}" class="btn btn-primary">Commander</a>
+                    </div>
                 </div>
-                <!-- End Column 1 -->
 
-                <!-- Start Column 2 -->
-                <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                    <a class="product-item" href="#">
-                        <img src="{{ asset('assets') }}/images/product-1.png" class="img-fluid product-thumbnail">
-                        <h3 class="product-title">Nordic Chair</h3>
-                        <strong class="product-price">$50.00</strong>
-
-                        <span class="icon-cross">
-                            <img src="{{ asset('assets') }}/images/cross.svg" class="img-fluid">
-                        </span>
-                    </a>
+                <div class="col-md-4 mb-4">
+                    <div class="pricing-card featured">
+                        <div class="pricing-header">
+                            <h3>Service Premium</h3>
+                            <div class="price">49€</div>
+                            <p>Par livraison</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Livraison sur rendez-vous</li>
+                            <li>Installation complète</li>
+                            <li>Reprise des emballages</li>
+                            <li>Assistance montage</li>
+                        </ul>
+                        <a href="{{ route('theme.shop') }}" class="btn btn-primary">Choisir</a>
+                    </div>
                 </div>
-                <!-- End Column 2 -->
 
-                <!-- Start Column 3 -->
-                <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                    <a class="product-item" href="#">
-                        <img src="{{ asset('assets') }}/images/product-2.png" class="img-fluid product-thumbnail">
-                        <h3 class="product-title">Kruzo Aero Chair</h3>
-                        <strong class="product-price">$78.00</strong>
-
-                        <span class="icon-cross">
-                            <img src="{{ asset('assets') }}/images/cross.svg" class="img-fluid">
-                        </span>
-                    </a>
+                <div class="col-md-4 mb-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Shopping VIP</h3>
+                            <div class="price">Gratuit</div>
+                            <p>Sur rendez-vous</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Conseiller personnel</li>
+                            <li>Showroom privatisé</li>
+                            <li>Devis personnalisé</li>
+                            <li>Service prioritaire</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
                 </div>
-                <!-- End Column 3 -->
-
-                <!-- Start Column 4 -->
-                <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                    <a class="product-item" href="#">
-                        <img src="{{ asset('assets') }}/images/product-3.png" class="img-fluid product-thumbnail">
-                        <h3 class="product-title">Ergonomic Chair</h3>
-                        <strong class="product-price">$43.00</strong>
-
-                        <span class="icon-cross">
-                            <img src="{{ asset('assets') }}/images/cross.svg" class="img-fluid">
-                        </span>
-                    </a>
-                </div>
-                <!-- End Column 4 -->
-
             </div>
         </div>
     </div>
-    <!-- End Product Section -->
 
-    <!-- Start Testimonial Slider -->
+    <!-- Section Témoignages -->
     <div class="testimonial-section before-footer-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 mx-auto text-center">
-                    <h2 class="section-title">Testimonials</h2>
+                    <h2 class="section-title">Avis Clients</h2>
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="testimonial-slider-wrap text-center">
-
-                        <div id="testimonial-nav">
-                            <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
-                            <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
-                        </div>
-
                         <div class="testimonial-slider">
-
                             <div class="item">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-8 mx-auto">
-
                                         <div class="testimonial-block text-center">
                                             <blockquote class="mb-5">
-                                                <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                                                    odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-                                                    vulputate velit imperdiet dolor tempor tristique. Pellentesque
-                                                    habitant morbi tristique senectus et netus et malesuada fames ac
-                                                    turpis egestas. Integer convallis volutpat dui quis
-                                                    scelerisque.&rdquo;</p>
+                                                <p>"Service impeccable ! La livraison premium vaut vraiment le coup. Les livreurs ont été très professionnels et ont parfaitement installé notre nouveau salon. Je recommande vivement."</p>
                                             </blockquote>
-
                                             <div class="author-info">
                                                 <div class="author-pic">
-                                                    <img src="{{ asset('assets') }}/images/person-1.png"
-                                                        alt="Maria Jones" class="img-fluid">
+                                                    <img src="{{ asset('assets') }}/images/person-1.png" alt="Sophie Martin" class="img-fluid">
                                                 </div>
-                                                <h3 class="font-weight-bold">Maria Jones</h3>
-                                                <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
+                                                <h3 class="font-weight-bold">Sophie Martin</h3>
+                                                <span class="position d-block mb-3">Cliente Premium</span>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-                            <!-- END item -->
-
-                            <div class="item">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-8 mx-auto">
-
-                                        <div class="testimonial-block text-center">
-                                            <blockquote class="mb-5">
-                                                <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                                                    odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-                                                    vulputate velit imperdiet dolor tempor tristique. Pellentesque
-                                                    habitant morbi tristique senectus et netus et malesuada fames ac
-                                                    turpis egestas. Integer convallis volutpat dui quis
-                                                    scelerisque.&rdquo;</p>
-                                            </blockquote>
-
-                                            <div class="author-info">
-                                                <div class="author-pic">
-                                                    <img src="{{ asset('assets') }}/images/person-1.png"
-                                                        alt="Maria Jones" class="img-fluid">
-                                                </div>
-                                                <h3 class="font-weight-bold">Maria Jones</h3>
-                                                <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-
-                            <div class="item">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-8 mx-auto">
-
-                                        <div class="testimonial-block text-center">
-                                            <blockquote class="mb-5">
-                                                <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                                                    odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-                                                    vulputate velit imperdiet dolor tempor tristique. Pellentesque
-                                                    habitant morbi tristique senectus et netus et malesuada fames ac
-                                                    turpis egestas. Integer convallis volutpat dui quis
-                                                    scelerisque.&rdquo;</p>
-                                            </blockquote>
-
-                                            <div class="author-info">
-                                                <div class="author-pic">
-                                                    <img src="{{ asset('assets') }}/images/person-1.png"
-                                                        alt="Maria Jones" class="img-fluid">
-                                                </div>
-                                                <h3 class="font-weight-bold">Maria Jones</h3>
-                                                <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Testimonial Slider -->
+
+<style>
+.pricing-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-card.featured {
+    border: 2px solid #3b5d50;
+    transform: scale(1.05);
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pricing-header h3 {
+    color: #2f2f2f;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3b5d50;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+}
+
+.pricing-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature .icon {
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #2f2f2f;
+}
+
+.feature p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.section-title {
+    color: #2f2f2f;
+    margin-bottom: 20px;
+}
+
+.lead {
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #3b5d50;
+    border-color: #3b5d50;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2f4a40;
+    border-color: #2f4a40;
+    transform: translateY(-2px);
+}
+</style>
 @endsection

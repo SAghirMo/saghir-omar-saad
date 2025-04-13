@@ -7,7 +7,6 @@
 
     @include('theme.partials.nav')
 
-    @include('theme.partials.hero')
 
     <!-- Different Content -->
     @yield('content')

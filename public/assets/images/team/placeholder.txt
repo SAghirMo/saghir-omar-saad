@@ -1,0 +1,13 @@
+Please replace this file with your actual photos:
+
+1. Add your photos to this directory:
+   - omar.jpg (Omar's photo)
+   - saghir.jpg (Your photo)
+
+Photo requirements:
+- Square shape (400x400 pixels or larger)
+- Good quality
+- Professional looking
+- JPG format
+
+You can delete this file after adding your photos. 
