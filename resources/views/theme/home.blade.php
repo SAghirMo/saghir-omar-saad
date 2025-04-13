@@ -19,7 +19,6 @@
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="{{ asset('assets/images/couch.jpg') }}" alt="Modern Couch" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -42,7 +41,7 @@
                     </div>
                     <div class="product-info">
                         <h3>Chaise Nordique</h3>
-                        <p class="price">450€</p>
+                        <p class="price">450DHS</p>
                         <a href="{{ route('theme.shop') }}" class="btn btn-outline-primary">Voir Détails</a>
                     </div>
                 </div>
@@ -55,7 +54,7 @@
                     </div>
                     <div class="product-info">
                         <h3>Chaise Aéro Kruzo</h3>
-                        <p class="price">680€</p>
+                        <p class="price">680DHS</p>
                         <a href="{{ route('theme.shop') }}" class="btn btn-outline-primary">Voir Détails</a>
                     </div>
                 </div>
@@ -68,7 +67,7 @@
                     </div>
                     <div class="product-info">
                         <h3>Chaise Ergonomique</h3>
-                        <p class="price">350€</p>
+                        <p class="price">350DHS</p>
                         <a href="{{ route('theme.shop') }}" class="btn btn-outline-primary">Voir Détails</a>
                     </div>
                 </div>

@@ -29,7 +29,26 @@
             </ul>
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li><a class="nav-link" href="#"><img src="{{ asset('assets') }}/images/user.svg"></a></li>
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{ asset('assets') }}/images/user.svg">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Mon compte</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Déconnexion</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @else
+                    <li><a class="nav-link" href="{{ route('login') }}">Connexion</a></li>
+                    <li><a class="nav-link" href="{{ route('register') }}">Inscription</a></li>
+                @endauth
                 <li><a class="nav-link" href="{{ route('theme.cart') }}"><img src="{{ asset('assets') }}/images/cart.svg"></a></li>
             </ul>
         </div>
