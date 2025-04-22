@@ -5,19 +5,35 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContactRequest;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 
 class ThemeController extends Controller
 {
     public function home()
-   {
-    return view('theme.home');
-   }
-   public function shop()
-{
-    return view('theme.shop'); // أنشئ هذا الملف لاحقًا
-}
+    {
+        $featuredProducts = Product::with('category')
+            ->where('featured', true)
+            ->take(6)
+            ->get();
+        
+        return view('theme.home', compact('featuredProducts'));
+    }
+
+    public function shop(Request $request)
+    {
+        $query = Product::with('category')->latest();
+        
+        if ($request->has('category')) {
+            $query->where('category_id', $request->category);
+        }
+        
+        $products = $query->paginate(12);
+        $categories = Category::all();
+        
+        return view('theme.shop', compact('products', 'categories'));
+    }
 
 
     public function about()

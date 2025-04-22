@@ -35,21 +35,53 @@
                             <img src="{{ asset('assets') }}/images/user.svg">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Mon compte</a></li>
+                            <li><a class="dropdown-item" href="#">My Account</a></li>
+                            <li><a class="dropdown-item" href="{{ route('wishlist.index') }}">My Wishlist</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="dropdown-item">Déconnexion</button>
+                                    <button type="submit" class="dropdown-item">Logout</button>
                                 </form>
                             </li>
                         </ul>
                     </li>
                 @else
-                    <li><a class="nav-link" href="{{ route('login') }}">Connexion</a></li>
-                    <li><a class="nav-link" href="{{ route('register') }}">Inscription</a></li>
+                    <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                    <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                 @endauth
-                <li><a class="nav-link" href="{{ route('theme.cart') }}"><img src="{{ asset('assets') }}/images/cart.svg"></a></li>
+                <li>
+                    <a class="nav-link position-relative" href="{{ route('wishlist.index') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                        @auth
+                            @php
+                                $wishlistCount = \App\Models\Wishlist::where('user_id', auth()->id())->count();
+                            @endphp
+                            @if($wishlistCount > 0)
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{ $wishlistCount }}
+                                </span>
+                            @endif
+                        @endauth
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link position-relative" href="{{ route('cart.index') }}">
+                        <img src="{{ asset('assets') }}/images/cart.svg">
+                        @auth
+                            @php
+                                $cartCount = \App\Models\Cart::where('user_id', auth()->id())->sum('quantity');
+                            @endphp
+                            @if($cartCount > 0)
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{ $cartCount }}
+                                </span>
+                            @endif
+                        @endauth
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

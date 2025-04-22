@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Management System Diagrams</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .diagram {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: white;
+        }
+        pre {
+            font-family: monospace;
+            white-space: pre;
+            margin: 0;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .sql {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Management System Diagrams</h1>
+
+    <div class="diagram">
+        <h2>Class Diagram</h2>
+        <pre>
++------------------+     +------------------+     +------------------+
+|      User        |     |   Restaurant     |     |      City        |
++------------------+     +------------------+     +------------------+
+| - id             |     | - id             |     | - id             |
+| - name           |     | - owner_id       |     | - name           |
+| - email          |     | - city_id        |     | - created_at     |
+| - password       |     | - name           |     | - updated_at     |
+| - email_verified |     | - address        |     +------------------+
+| - remember_token |     | - created_at     |
+| - created_at     |     | - updated_at     |
+| - updated_at     |     +------------------+
++------------------+
+</pre>
+    </div>
+
+    <div class="diagram">
+        <h2>Database Relationships</h2>
+        <ol>
+            <li>User to Restaurant (1-to-many)
+                <ul>
+                    <li>One user can own many restaurants (owner_id)</li>
+                    <li>Each restaurant belongs to one user</li>
+                </ul>
+            </li>
+            <li>City to Restaurant (1-to-many)
+                <ul>
+                    <li>One city can have many restaurants</li>
+                    <li>Each restaurant belongs to one city</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="diagram">
+        <h2>Table Structure</h2>
+        
+        <h3>Users Table</h3>
+        <div class="sql">
+            <pre>CREATE TABLE users (
+    id bigint unsigned NOT NULL AUTO_INCREMENT,
+    name varchar(255) NOT NULL,
+    email varchar(255) NOT NULL UNIQUE,
+    email_verified_at timestamp NULL,
+    password varchar(255) NOT NULL,
+    remember_token varchar(100) NULL,
+    created_at timestamp NULL,
+    updated_at timestamp NULL,
+    PRIMARY KEY (id)
+);</pre>
+        </div>
+
+        <h3>Cities Table</h3>
+        <div class="sql">
+            <pre>CREATE TABLE cities (
+    id bigint unsigned NOT NULL AUTO_INCREMENT,
+    name varchar(255) NOT NULL,
+    created_at timestamp NULL,
+    updated_at timestamp NULL,
+    PRIMARY KEY (id)
+);</pre>
+        </div>
+
+        <h3>Restaurants Table</h3>
+        <div class="sql">
+            <pre>CREATE TABLE restaurants (
+    id bigint unsigned NOT NULL AUTO_INCREMENT,
+    owner_id bigint unsigned NOT NULL,
+    city_id bigint unsigned NOT NULL,
+    name varchar(255) NOT NULL,
+    address text NOT NULL,
+    created_at timestamp NULL,
+    updated_at timestamp NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (owner_id) REFERENCES users(id),
+    FOREIGN KEY (city_id) REFERENCES cities(id)
+);</pre>
+        </div>
+    </div>
+</body>
+</html> 

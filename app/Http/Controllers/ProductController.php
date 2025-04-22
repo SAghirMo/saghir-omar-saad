@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -10,77 +11,92 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('theme.shop', ['products' => $products]);
+        $products = Product::with('category')->latest()->paginate(12);
+        $categories = Category::all();
+        return view('products.index', compact('products', 'categories'));
     }
 
     public function create()
     {
-        return view('theme.products.create');
+        $categories = Category::where('status', true)->get();
+        return view('theme.products.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required|numeric',
-            'category' => 'required',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'stock' => 'required|integer'
+            'category_id' => 'required|exists:categories,id',
+            'featured' => 'boolean',
         ]);
 
-        $imagePath = $request->file('image')->store('products', 'public');
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('products', 'public');
+        }
 
-        Product::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'category' => $request->category,
-            'image' => $imagePath,
-            'stock' => $request->stock
-        ]);
+        $validated['user_id'] = auth()->id();
+        $validated['featured'] = $request->has('featured');
 
-        return redirect()->route('theme.shop')->with('success', 'Produit ajouté avec succès.');
+        Product::create($validated);
+
+        return redirect()->route('seller.products.index')
+            ->with('success', 'Produit créé avec succès.');
+    }
+
+    public function show(Product $product)
+    {
+        return view('products.show', compact('product'));
     }
 
     public function edit(Product $product)
     {
-        return view('theme.products.edit', compact('product'));
+        $this->authorize('update', $product);
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, Product $product)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required|numeric',
-            'category' => 'required',
+        $this->authorize('update', $product);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'stock' => 'required|integer'
+            'category_id' => 'required|exists:categories,id',
+            'featured' => 'boolean',
         ]);
 
         if ($request->hasFile('image')) {
-            Storage::delete('public/' . $product->image);
-            $imagePath = $request->file('image')->store('products', 'public');
-            $product->image = $imagePath;
+            if ($product->image) {
+                Storage::disk('public')->delete($product->image);
+            }
+            $validated['image'] = $request->file('image')->store('products', 'public');
         }
 
-        $product->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'category' => $request->category,
-            'stock' => $request->stock
-        ]);
+        $validated['featured'] = $request->has('featured');
 
-        return redirect()->route('theme.shop')->with('success', 'Produit mis à jour avec succès.');
+        $product->update($validated);
+
+        return redirect()->route('seller.products.index')
+            ->with('success', 'Produit mis à jour avec succès.');
     }
 
     public function destroy(Product $product)
     {
-        Storage::delete('public/' . $product->image);
+        $this->authorize('delete', $product);
+
+        if ($product->image) {
+            Storage::disk('public')->delete($product->image);
+        }
+
         $product->delete();
-        return redirect()->route('theme.shop')->with('success', 'Produit supprimé avec succès.');
+
+        return redirect()->route('seller.products.index')
+            ->with('success', 'Produit supprimé avec succès.');
     }
 } 

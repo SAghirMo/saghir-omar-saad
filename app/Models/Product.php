@@ -13,8 +13,29 @@ class Product extends Model
         'name',
         'description',
         'price',
-        'category',
         'image',
-        'stock'
+        'featured',
+        'category_id',
+        'user_id',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 } 
