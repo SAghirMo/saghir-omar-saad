@@ -27,12 +27,22 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="price" class="form-label">Prix (DHS)</label>
-                            <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price') }}" required>
-                            @error('price')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="price" class="form-label">Prix (DHS)</label>
+                                <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price') }}" required>
+                                @error('price')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="stock" class="form-label">Quantité en stock</label>
+                                <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" value="{{ old('stock', 0) }}" min="0" required>
+                                @error('stock')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="mb-3">
@@ -51,6 +61,48 @@
                             <div class="form-text">
                                 Seules les catégories actives sont affichées. Si vous ne voyez pas la catégorie souhaitée, veuillez contacter l'administrateur.
                             </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="size" class="form-label">Taille</label>
+                                <select class="form-select @error('size') is-invalid @enderror" id="size" name="size">
+                                    <option value="">Sélectionnez une taille</option>
+                                    <option value="XS" {{ old('size') == 'XS' ? 'selected' : '' }}>XS</option>
+                                    <option value="S" {{ old('size') == 'S' ? 'selected' : '' }}>S</option>
+                                    <option value="M" {{ old('size') == 'M' ? 'selected' : '' }}>M</option>
+                                    <option value="L" {{ old('size') == 'L' ? 'selected' : '' }}>L</option>
+                                    <option value="XL" {{ old('size') == 'XL' ? 'selected' : '' }}>XL</option>
+                                    <option value="XXL" {{ old('size') == 'XXL' ? 'selected' : '' }}>XXL</option>
+                                </select>
+                                @error('size')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="color" class="form-label">Couleur</label>
+                                <select class="form-select @error('color') is-invalid @enderror" id="color" name="color">
+                                    <option value="">Sélectionnez une couleur</option>
+                                    <option value="Rouge" {{ old('color') == 'Rouge' ? 'selected' : '' }}>Rouge</option>
+                                    <option value="Bleu" {{ old('color') == 'Bleu' ? 'selected' : '' }}>Bleu</option>
+                                    <option value="Vert" {{ old('color') == 'Vert' ? 'selected' : '' }}>Vert</option>
+                                    <option value="Noir" {{ old('color') == 'Noir' ? 'selected' : '' }}>Noir</option>
+                                    <option value="Blanc" {{ old('color') == 'Blanc' ? 'selected' : '' }}>Blanc</option>
+                                    <option value="Gris" {{ old('color') == 'Gris' ? 'selected' : '' }}>Gris</option>
+                                </select>
+                                @error('color')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="material" class="form-label">Matériau</label>
+                            <input type="text" class="form-control @error('material') is-invalid @enderror" id="material" name="material" value="{{ old('material') }}">
+                            @error('material')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="mb-3">
