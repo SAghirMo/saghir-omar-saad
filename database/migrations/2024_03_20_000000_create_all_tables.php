@@ -52,9 +52,13 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->decimal('price', 10, 2);
-            $table->string('category');
+            $table->unsignedBigInteger('category_id');
             $table->string('image');
             $table->integer('stock');
+            $table->string('size')->nullable();
+            $table->string('color')->nullable();
+            $table->string('material')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

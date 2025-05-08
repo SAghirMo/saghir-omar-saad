@@ -46,9 +46,11 @@
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="section-title">Nos Produits</h2>
                     @auth
-                        <a href="{{ route('seller.products.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus"></i> Ajouter un Produit
-                        </a>
+                        @if(auth()->user()->role === 'seller')
+                            <a href="{{ route('seller.products.create') }}" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Ajouter un Produit
+                            </a>
+                        @endif
                     @endauth
                 </div>
 

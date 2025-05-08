@@ -35,8 +35,6 @@
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        @include('theme.partials.nav')
-
         <!-- Page Content -->
         <main>
             @yield('content')
@@ -48,10 +46,6 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h5>S&B Store</h5>
-                        <p>Your one-stop shop for all your needs.</p>
-                    </div>
-                    <div class="col-md-6 text-md-end">
-                        <p>&copy; {{ date('Y') }} S&B Store. All rights reserved.</p>
                     </div>
                 </div>
             </div>

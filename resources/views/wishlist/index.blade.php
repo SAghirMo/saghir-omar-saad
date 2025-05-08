@@ -30,11 +30,11 @@
                         <div class="position-relative">
                             <img src="{{ asset('storage/' . $item->product->image) }}" class="card-img-top" alt="{{ $item->product->name }}">
                             <div class="position-absolute top-0 end-0 p-2">
-                                <form action="{{ route('wishlist.destroy', $item->id) }}" method="POST" class="d-inline">
+                                <form action="{{ route('wishlist.destroy', ['wishlist' => $item->id]) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-light delete-button" title="Supprimer">
-                                        <i class="fas fa-times"></i>
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Supprimer
                                     </button>
                                 </form>
                             </div>
